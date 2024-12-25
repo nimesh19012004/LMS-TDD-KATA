@@ -29,7 +29,7 @@ describe(`Library Mangement System`, () => {
 
         test(`should add book and return added book`,()=>{
             let book1 = new Book(
-              452367,
+              4523674567,
               "Rich Dad Poor Dad",
               "Robert Kiyosaki",
               1997
@@ -46,12 +46,7 @@ describe(`Library Mangement System`, () => {
         test(
           `should not add book(Throw error) any missing field(isbn,title,author,publicationYear)`,()=>{
 
-            let book1 = new Book(
-              452367,
-              "",
-              "Robert Kiyosaki",
-              1997
-            );
+            let book1 = new Book(4523674567, "", "Robert Kiyosaki", 1997);
 
             expect(() => library.addBook(book1)).toThrow(
               `All fields (ISBN, title, author, publicationYear) are required`
@@ -63,7 +58,7 @@ describe(`Library Mangement System`, () => {
 
         test("should not add a book with an duplicate ISBN which is already present", () => {
           let book1 = new Book(
-            452367,
+            4523674567,
             "Rich Dad Poor Dad",
             "Robert Kiyosaki",
             1997
@@ -73,7 +68,20 @@ describe(`Library Mangement System`, () => {
             "The same ISBN number book is already present"
           );
         });
-        
+
+
+        test("should not add a book if ISBN number length is not 10", () => {
+          let book1 = new Book(
+            452367,
+            "Rich Dad Poor Dad",
+            "Robert Kiyosaki",
+            1997
+          );
+          expect(() => library.addBook(book1)).toThrow(
+            "The ISBN number length should be exactly 10"
+          );
+        });
+
     })
 
 });
