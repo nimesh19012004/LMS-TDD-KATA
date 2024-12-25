@@ -24,6 +24,22 @@ describe(`Library Mangement System`, () => {
     
 
 
+    describe(`test case for add book`,()=>{
+
+
+        test(`should add book and return added book`,()=>{
+            let book1 = new Book(
+              452367,
+              "Rich Dad Poor Dad",
+              "Robert Kiyosaki",
+              1997
+            );
+
+          library.addBook(book1);
+          expect(library.books).toContain(book1);
+        })
+    })
+
 });
 
 

@@ -4,13 +4,13 @@
  */
 
 class Library {
-  // Initializes an empty array to store books. 
+  // Initializes an empty array to store books.
 
   constructor() {
     this.books = [];
   }
 
-
+  
 }
 
 
