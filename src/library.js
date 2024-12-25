@@ -10,7 +10,11 @@ class Library {
     this.books = [];
   }
 
-  
+  // Adds a new book to the library
+  addBook(book){
+
+    this.books.push(book);
+  }
 }
 
 
