@@ -28,6 +28,12 @@ class Library {
     }
 
 
+    // Validates that the ISBN length is exactly 10.
+     if (book.isbn.toString().length !=10) {
+       throw new Error("The ISBN number length should be exactly 10");
+     }
+
+
     this.books.push(book);
   }
 }
