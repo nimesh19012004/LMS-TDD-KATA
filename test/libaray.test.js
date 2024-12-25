@@ -60,6 +60,20 @@ describe(`Library Mangement System`, () => {
 
           }
         );
+
+        test("should not add a book with an duplicate ISBN which is already present", () => {
+          let book1 = new Book(
+            452367,
+            "Rich Dad Poor Dad",
+            "Robert Kiyosaki",
+            1997
+          );
+          library.addBook(book1);
+          expect(() => library.addBook(book1)).toThrow(
+            "The same ISBN number book is already present"
+          );
+        });
+        
     })
 
 });
