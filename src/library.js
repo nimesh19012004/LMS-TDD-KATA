@@ -33,6 +33,12 @@ class Library {
        throw new Error("The ISBN number length should be exactly 10");
      }
 
+    //  Validates that the publication year is in the past.
+     const currentYear = new Date().getFullYear();
+     if (book.publicationYear > currentYear) {
+       throw new Error("Write the valid publication year in the past");
+     }
+
 
     this.books.push(book);
   }
