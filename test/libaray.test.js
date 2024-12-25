@@ -54,7 +54,7 @@ describe(`Library Mangement System`, () => {
             );
 
             expect(() => library.addBook(book1)).toThrow(
-              `should not add book(Throw error) any missing field(isbn,title,author,publicationYear)`
+              `All fields (ISBN, title, author, publicationYear) are required`
             );
 
 

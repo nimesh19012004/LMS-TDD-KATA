@@ -13,6 +13,12 @@ class Library {
   // Adds a new book to the library
   addBook(book){
 
+     if (!book.isbn || !book.title || !book.author || !book.publicationYear) {
+       throw new Error(
+         "All fields (ISBN, title, author, publicationYear) are required"
+       );
+     }
+
     this.books.push(book);
   }
 }
