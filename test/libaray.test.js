@@ -38,6 +38,28 @@ describe(`Library Mangement System`, () => {
           library.addBook(book1);
           expect(library.books).toContain(book1);
         })
+
+
+        
+
+
+        test(
+          `should not add book(Throw error) any missing field(isbn,title,author,publicationYear)`,()=>{
+
+            let book1 = new Book(
+              452367,
+              "",
+              "Robert Kiyosaki",
+              1997
+            );
+
+            expect(() => library.addBook(book1)).toThrow(
+              `should not add book(Throw error) any missing field(isbn,title,author,publicationYear)`
+            );
+
+
+          }
+        );
     })
 
 });
