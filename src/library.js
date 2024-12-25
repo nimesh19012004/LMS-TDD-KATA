@@ -11,36 +11,49 @@ class Library {
   }
 
   // Adds a new book to the library
-  addBook(book){
+  addBook(book) {
 
-    // Validates that the book has all required fields.
+    this.validateBook(book);
+    this.checkDuplicateISBN(book);
+    this.validateISBNLength(book);
+    this.validatePublicationYear(book);
 
-     if (!book.isbn || !book.title || !book.author || !book.publicationYear) {
-       throw new Error(
-         "All fields (ISBN, title, author, publicationYear) are required"
-       );
-     }
+    
+    this.books.push(book);
+  }
 
-    // Checks if the book with the same ISBN already exists in the library.
+  // Validates that the book has all required fields.
 
+  validateBook(book) {
+    if (!book.isbn || !book.title || !book.author || !book.publicationYear) {
+      throw new Error(
+        "All fields (ISBN, title, author, publicationYear) are required"
+      );
+    }
+  }
+
+  // Checks if the book with the same ISBN already exists in the library.
+
+  checkDuplicateISBN(book) {
     if (this.books.some((b) => b.isbn === book.isbn)) {
-    throw new Error("The same ISBN number book is already present");
+      throw new Error("The same ISBN number book is already present");
     }
 
+  }
 
-    // Validates that the ISBN length is exactly 10.
-     if (book.isbn.toString().length !=10) {
+  // Validates that the ISBN length is exactly 10.
+  validateISBNLength(book) {
+     if (book.isbn.toString().length != 10) {
        throw new Error("The ISBN number length should be exactly 10");
      }
+  }
 
-    //  Validates that the publication year is in the past.
-     const currentYear = new Date().getFullYear();
-     if (book.publicationYear > currentYear) {
-       throw new Error("Write the valid publication year in the past");
-     }
-
-
-    this.books.push(book);
+  //  Validates that the publication year is in the past.
+  validatePublicationYear(book) {
+    const currentYear = new Date().getFullYear();
+    if (book.publicationYear > currentYear) {
+      throw new Error("Write the valid publication year in the past");
+    }
   }
 }
 
