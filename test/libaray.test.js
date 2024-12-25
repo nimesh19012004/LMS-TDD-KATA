@@ -82,6 +82,19 @@ describe(`Library Mangement System`, () => {
           );
         });
 
+
+        test("should not enter the invalid publicationYear in the past", () => {
+          let book1 = new Book(
+            4523674567,
+            "Rich Dad Poor Dad",
+            "Robert Kiyosaki",
+            2080
+          );
+          expect(() => library.addBook(book1)).toThrow(
+            "Write the valid publication year in the past"
+          );
+        });
+
     })
 
 });
