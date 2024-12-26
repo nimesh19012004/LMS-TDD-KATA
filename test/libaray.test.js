@@ -147,6 +147,19 @@ describe(`Library Mangement System`, () => {
        test("should not return book if it's not available in the library", () => {
          expect(() => library.returnBook(4523674567)).toThrow("Book not found");
        });
+
+       test("should not return book if it's not borrowed", () => {
+         let book1 = new Book(
+           4523674567,
+           "Rich Dad Poor Dad",
+           "Robert Kiyosaki",
+           1997
+         );
+         library.addBook(book1);
+         expect(() => library.returnBook(book1.isbn)).toThrow(
+           "Book was not borrowed"
+         );
+       });
     });
 
 
