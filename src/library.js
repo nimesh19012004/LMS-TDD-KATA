@@ -26,31 +26,37 @@ class Library {
     const book = this.books.find((b) => b.isbn === isbn);
 
     this.checkBookIsAvailableInTheLibrary(book);
-  
+
     this.checkBookIsBorrowedOrNot(book);
 
     book.isBorrowed = true;
     return "Book borrowed successfully";
   }
 
-
-  returnBook(isbn){
-    const book=this.books.find((b)=>b.isbn===isbn);
+  // return borrowed book
+  returnBook(isbn) {
+    const book = this.books.find((b) => b.isbn === isbn);
 
     this.checkBookIsAvailableInTheLibrary(book);
 
+    // check if book is not borrowed
 
-    // check if book is not borrowed 
-
-    if(!book.isBorrowed){
+    if (!book.isBorrowed) {
       throw new Error("Book was not borrowed");
     }
 
-    book.isBorrowed=false;
+    book.isBorrowed = false;
 
     return `Book is return Successfully`;
+  }
 
+  // show available books (wich are not borrowed)
 
+  showAvailableBooks(){
+
+    // filter all the available books
+    const availableBooks=this.books.filter((b)=>!b.isBorrowed);
+    return availableBooks;
   }
 
   //checking if book is available in library
@@ -61,8 +67,7 @@ class Library {
     }
   }
 
-
-  //check if book is already borrowed 
+  //check if book is already borrowed
   checkBookIsBorrowedOrNot(book) {
     if (book.isBorrowed) {
       throw new Error(`Book is already borrowed`);
