@@ -39,7 +39,14 @@ class Library {
 
     this.checkBookIsAvailableInTheLibrary(book);
 
-    
+
+    // check if book is not borrowed 
+
+    if(!book.isBorrowed){
+      throw new Error("Book was not borrowed");
+    }
+
+
   }
 
   //checking if book is available in library
