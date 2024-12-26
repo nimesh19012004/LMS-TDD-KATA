@@ -204,6 +204,41 @@ describe(`Library Mangement System`, () => {
          const availableBooks = library.showAvailableBooks();
          expect(availableBooks.length).toBe(0);
        });
+
+       test(`should return available books`,()=>{
+        const book1 = new Book(
+          4523674567,
+          "Rich Dad Poor Dad",
+          "Robert Kiyosaki",
+          1997
+        );
+
+        const book2 = new Book(
+          4523677567,
+          "OBJECT ORIENTED PROGRAMMING",
+          "Dr. Manmohan Singh",
+          2022
+        );
+        const book3 = new Book(
+          9391566219,
+          "Foundations of Software Testing",
+          "Dorothy Graham",
+          2018
+        );
+
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+
+        library.borrowBook(4523674567);
+
+        const availableBooks=library.showAvailableBooks();
+        
+        expect(availableBooks.length).toBe(2);
+        expect(availableBooks[0].isbn).toBe(4523677567);
+        expect(availableBooks[1].isbn).toBe(9391566219);
+
+       })
     });
 
 
