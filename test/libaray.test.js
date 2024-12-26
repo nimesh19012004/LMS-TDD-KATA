@@ -122,6 +122,18 @@ describe(`Library Mangement System`, () => {
      })
 
 
+     test(`should borrow if it's available`,()=>{
+      const book1 = new Book(
+          4523674567,
+          "Rich Dad Poor Dad",
+          "Robert Kiyosaki",
+          1997
+        );
+        library.addBook(book1);
+      expect(library.borrowBook(4523674567)).toBe("Book borrowed successfully");
+     })
+
+
 
     })
 
