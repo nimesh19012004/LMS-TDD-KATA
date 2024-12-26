@@ -46,6 +46,10 @@ class Library {
       throw new Error("Book was not borrowed");
     }
 
+    book.isBorrowed=false;
+
+    return `Book is return Successfully`;
+
 
   }
 
