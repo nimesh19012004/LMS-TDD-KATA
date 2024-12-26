@@ -177,6 +177,37 @@ describe(`Library Mangement System`, () => {
     });
 
 
+    // testing view book
+
+    describe(`test case for view available book`, () => {
+      
+
+       test(`should show no available books when all are borrowed`, () => {
+         const book1 = new Book(
+           4523674567,
+           "Rich Dad Poor Dad",
+           "Robert Kiyosaki",
+           1997
+         );
+
+         const book2 = new Book(
+           4523677567,
+           "OBJECT ORIENTED PROGRAMMING",
+           "Dr. Manmohan Singh",
+           2022
+         );
+         library.addBook(book1);
+         library.addBook(book2);
+         library.borrowBook(4523674567);
+         library.borrowBook(4523677567);
+
+         const availableBooks = library.showAvailableBooks();
+         expect(availableBooks.length).toBe(0);
+       });
+    });
+
+
+
 
 });
 
