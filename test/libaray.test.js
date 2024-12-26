@@ -102,7 +102,6 @@ describe(`Library Mangement System`, () => {
 
     // Nested describe block for testing book borrowing
 
-
     describe(`test case fot borrow book`,()=>{
 
      test(`should not borrow book if it's not added to the library`,()=>{
@@ -115,10 +114,10 @@ describe(`Library Mangement System`, () => {
           4523674567,
           "Rich Dad Poor Dad",
           "Robert Kiyosaki",
-          2080
+          1997
         );
         library.addBook(book1);
-        library.borrowBook(book1);
+        library.borrowBook(4523674567);
         expect(() => library.borrowBook(4523674567)).toThrow('Book is already borrowed');
      })
 

@@ -23,10 +23,18 @@ class Library {
   // borrow available book from library
   borrowBook(isbn) {
     // check if book is added as per isbn
-    const book = this.books.find((b) => b.isbn === isbn);
-    if (!book) {
-      throw new Error(`Book not found`);
+    const book = this.books.find((b) => b.isbn === isbn); 
+
+    if(!book){
+      throw new Error("Book not found")
     }
+
+    //check if book is availble
+
+    if(book.isBorrowed){
+     throw new Error(`Book is already borrowed`);
+    }
+
     book.isBorrowed=true;
     return 'Book borrowed successfully';
   }
