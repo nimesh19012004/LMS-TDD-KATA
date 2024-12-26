@@ -160,6 +160,20 @@ describe(`Library Mangement System`, () => {
            "Book was not borrowed"
          );
        });
+
+
+       test(`should return book if it's borrowed`, () => {
+        let book1 = new Book(
+          4523674567,
+          "Rich Dad Poor Dad",
+          "Robert Kiyosaki",
+          1997
+        );
+        library.addBook(book1);
+        library.borrowBook(4523674567);
+        expect(library.returnBook(4523674567)).toBe('Book is return Successfully');
+       
+       });
     });
 
 
