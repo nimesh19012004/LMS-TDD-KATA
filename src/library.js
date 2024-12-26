@@ -12,14 +12,21 @@ class Library {
 
   // Adds a new book to the library
   addBook(book) {
-
     this.validateBook(book);
     this.checkDuplicateISBN(book);
     this.validateISBNLength(book);
     this.validatePublicationYear(book);
 
-    
     this.books.push(book);
+  }
+
+  // borrow available book from library
+  borrowBook(isbn) {
+    // check if book is added as per isbn
+    const book = this.books.find((b) => b.isbn === isbn);
+    if (!book) {
+      throw new Error(`Book not found`);
+    }
   }
 
   // Validates that the book has all required fields.
@@ -38,14 +45,13 @@ class Library {
     if (this.books.some((b) => b.isbn === book.isbn)) {
       throw new Error("The same ISBN number book is already present");
     }
-
   }
 
   // Validates that the ISBN length is exactly 10.
   validateISBNLength(book) {
-     if (book.isbn.toString().length != 10) {
-       throw new Error("The ISBN number length should be exactly 10");
-     }
+    if (book.isbn.toString().length != 10) {
+      throw new Error("The ISBN number length should be exactly 10");
+    }
   }
 
   //  Validates that the publication year is in the past.

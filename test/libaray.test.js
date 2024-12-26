@@ -106,9 +106,9 @@ describe(`Library Mangement System`, () => {
     describe(`test case fot borrow book`,()=>{
 
      test(`should not borrow book if it's not added to the library`,()=>{
-      expect(() => borrowBook(4523674567)).toThrow("Book not found");
+      expect(() => library.borrowBook(4523674567)).toThrow('Book not found');
      })
-     
+
 
 
     })
