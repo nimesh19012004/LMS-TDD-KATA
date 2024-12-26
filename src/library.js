@@ -27,6 +27,8 @@ class Library {
     if (!book) {
       throw new Error(`Book not found`);
     }
+    book.isBorrowed=true;
+    return 'Book borrowed successfully';
   }
 
   // Validates that the book has all required fields.

@@ -110,6 +110,19 @@ describe(`Library Mangement System`, () => {
      })
 
 
+     test(`should not borrowed book if it's not available`,()=>{
+        const book1 = new Book(
+          4523674567,
+          "Rich Dad Poor Dad",
+          "Robert Kiyosaki",
+          2080
+        );
+        library.addBook(book1);
+        library.borrowBook(book1);
+        expect(() => library.borrowBook(4523674567)).toThrow('Book is already borrowed');
+     })
+
+
 
     })
 
