@@ -145,7 +145,7 @@ describe(`Library Mangement System`, () => {
       
 
        test("should not return book if it's not available in the library", () => {
-         expect(() => library.returnBook(123456)).toThrow("Book not found");
+         expect(() => library.returnBook(4523674567)).toThrow("Book not found");
        });
     });
 

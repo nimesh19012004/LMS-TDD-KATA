@@ -33,6 +33,15 @@ class Library {
     return "Book borrowed successfully";
   }
 
+
+  returnBook(isbn){
+    const book=this.books.find((b)=>b.isbn===isbn);
+
+    this.checkBookIsAvailableInTheLibrary(book);
+
+    
+  }
+
   //checking if book is available in library
 
   checkBookIsAvailableInTheLibrary(book) {
